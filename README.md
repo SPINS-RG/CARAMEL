@@ -1,16 +1,10 @@
 # Repository for CARAMEL:  Boosting Device Utilization in Control Flow Auditing
 
-## Accepted to [DAC '26]()
+CARAMEL was accepted to appear in DAC 2026.
 
-```
-@inproceedings {291156,
-author = {Alexandra Lengert and Adam Caulfield and Ivan De Oliveira Nunes},
-title = {{CARAMEL}: Boosting Device Utilization in Control Flow Auditing}
+Paper versions: [DAC](https://dl.acm.org/doi/10.1145/3770743.3804209), [arXiv](https://arxiv.org/abs/2603.02161), [author](https://adamicaulfield.github.io/papers/caramel_author_version.pdf)
 
-}
-```
-
-### Description folders containing code and data
+### Description of repo contents:
 
 `caramel_hw` - contains all Verilog files for CARAMEL hardware. Contains two subdirectories for CARAMEL's submodules: `active_rot_module` and `cfa_module`
 
@@ -133,7 +127,6 @@ The simulation is fully automated and includes the Vrf-side delays and RTT delay
 
 13. Afterwards, the tcl console will print the estimated total run time. It is different than the simulation time as we are calculating the authetication.
 
-
 ### Changing CARAMEL LOG SIZE 
 
 1. Navigate to `\tcb\wrapper.c`.
@@ -149,3 +142,37 @@ The simulation is fully automated and includes the Vrf-side delays and RTT delay
 6. After saving the changes in `openMSP430_defines.v` you will need to synthesize CARAMEL hardware again. (Follow the steps in Setup Simulation)
 
 7. You can simulate CARAMEL with the increased LOG SIZE. Please be sure to use the same size in in `\tcb\wrapper.c` and `openMSP430_defines.v`.
+
+### Citations
+
+This repository:
+```
+@misc{caramel_repo,
+        author = {Lengert, Alexandra and Caulfield, Adam Ilyas and De Oliveira Nunes, Ivan},
+        title =  {{Repository for CARAMEL: Boosting Device Utilization in Control Flow Auditing}},
+        url = {https://github.com/SPINS-RG/CARAMEL.git},
+        version = {1.0.0},
+        month = Apr,
+        year = {2026}
+}
+```
+
+The paper:
+```
+@inproceedings{caramel_paper,
+        author = {Lengert, Alexandra and Caulfield, Adam Ilyas and De Oliveira Nunes, Ivan},
+        title = {CARAMEL: Boosting Device Utilization in Control Flow Auditing},
+        year = {2026},
+        isbn = {9798400722547},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3770743.3804209},
+        doi = {10.1145/3770743.3804209},
+        abstract = {Micro-Controller Units (MCUs) are widely used in safety-critical systems, making them attractive targets for attacks. This calls for lightweight defenses that remain effective despite software compromise. Control Flow Auditing (CF-Aud) is one such mechanism wherein a remote Verifier (Vrf) is guaranteed to receive evidence about the control flow path taken on a Prover MCU (Prv), even when Prv software is compromised. Despite promising benefits, current CF-Aud architectures unfortunately require a "busy-wait" phase where a hardware-anchored root-of-trust (RoT) in Prv retains execution control to ensure delivery of control flow evidence to Vrf. This drastically reduces CPU utilization on Prv.In this work, we address this limitation with an architecture for Contention Avoidance in Runtime Auditing with Minimized Execution Latency (CARAMEL). CARAMEL is a hardware-software RoT co-design that enables Prv applications to resume while control flow evidence is transmitted to Vrf. This significantly reduces contention due to transmission delays and improves CPU utilization without giving up on security. Key to CARAMEL is our design of a new RoT with a self-contained (and minimal) dedicated communication interface. CARAMEL's implementation and accompanying evaluation are made open-source. Our results show substantially improved CPU utilization at modest hardware cost.},
+        booktitle = {Proceedings of the 63rd ACM/IEEE Design Automation Conference},
+        articleno = {162},
+        numpages = {7},
+        location = {Long Beach, CA, USA},
+        series = {DAC '26}
+}
+```
